@@ -1,11 +1,19 @@
 
+def read_array(filename):
+
+    rval = []
+    with open(filename, 'r') as file:
+        for line in file:
+            row = list(line.strip())
+            rval.append(row)
+
+    return rval
 
 
-# Function to retrieve a square subset of a specified size from the 2D array
 def get_subset(row, col, size, data):
     # adjust
-    top_left_row = row - 3
-    top_left_col = col - 3
+    top_left_row = row - 1
+    top_left_col = col - 1
 
     subset = []
     for i in range(size):
@@ -25,11 +33,20 @@ def get_subset(row, col, size, data):
     return subset
 
 
+def read_test_data():
 
-def main():
+    # tests_names = ['4_ne.txt', 
+    #                '4_n.txt', 
+    #                '4_s.txt', 
+    #                '4_w.txt', 
+    #                '4_nw.txt', 
+    #                '4_se.txt', 
+    #                '4_sw.txt', 
+    #                '4_e.txt']
 
-    tests_names = ['4_ne.txt', '4_n.txt', '4_s.txt', '4_w.txt', '4_ne.txt', '4_nw.txt', '4_se.txt', '4_sw.txt', '4_e.txt']
+    tests_names = ['xmas_1.txt', 'xmas_2.txt', 'xmas_3.txt', 'xmas_4.txt']
 
+    # read in the test data sets
     test_data = []
     for test_name in tests_names:
         input_data = read_array('data/'+test_name)
@@ -38,48 +55,48 @@ def main():
     for test_set in test_data:
         for row in test_set:
             print(row)
-        print('-------------------')
+        print('-------------------')    
 
-    # Define the filename
-    filename = 'input_4_a.txt'
+    return test_data
 
+
+def main():
+
+    match_count = 0
+
+    test_data = read_test_data()
+
+    subset_size = 3
+
+    filename = 'input_4.txt'
     input_data = read_array(filename)
 
-    # Example: Get a 7x7 subset starting from (1, 1)
-    top_left_row = 3  # 2nd row (0-based index)
-    top_left_col = 3  # 2nd column (0-based index)
-    subset_size = 7   # Size of the subset
+    for x in range(len(input_data)):
+        for y in range(len(input_data[x])):
 
-    subset = get_subset(top_left_row, top_left_col, subset_size, input_data)
+            subset = get_subset(x, y, subset_size, input_data)
 
-    # Display the subset
-    print(f"{subset_size}x{subset_size} Subset:")
-    for row in subset:
-        print(row)
+            print(f"{x} x {y} Subset:")
+            for row in subset:
+                print(row)
 
-    for test_set in test_data:
-        match = True
-        for i in range(len(test_set)):      # Iterate over rows
-            for j in range(len(test_set[i])):  # Iterate over columns
-                test_value = test_set[i][j]        # Access the value at position (i, j)
-                if test_value is not ".":
-                    input_value = subset[i][j]
-                    if test_value != input_value:
-                        match = False
-        if match:
-            print('Match found')
+            for test_set in test_data:
+                match = True
+                for i in range(len(test_set)):
+                    for j in range(len(test_set[i])):
+                        test_value = test_set[i][j]
+                        if test_value != ".":
+                            input_value = subset[i][j]
+                            if test_value != input_value:
+                                match = False
+                if match:
+                    print('matching test set')
+                    for row in test_set:
+                        print(row)
+                    match_count += 1
+                    print(f'Match found {match_count}')
 
-
-def read_array(filename):
-    # Open the file and read its contents
-    rval = []
-    with open(filename, 'r') as file:
-        for line in file:
-            # Strip leading/trailing whitespace and convert the line to a list of characters
-            row = list(line.strip())  # Convert the line to a list of characters
-            rval.append(row)
-
-    return rval
+    print(f"Match count: {match_count}")
 
 
 if __name__ == '__main__':
