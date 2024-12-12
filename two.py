@@ -70,7 +70,7 @@ def _check_delta(valid):
 def main():
 
     entire_list = []
-    with open('input_two.txt', 'r') as file:
+    with open('data/input_two.txt', 'r') as file:
         for line in file:
             values = line.split()
             values = [int(x) for x in values]

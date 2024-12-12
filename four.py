@@ -68,7 +68,7 @@ def main():
 
     subset_size = 3
 
-    filename = 'input_4.txt'
+    filename = 'data/input_4.txt'
     input_data = read_array(filename)
 
     for x in range(len(input_data)):

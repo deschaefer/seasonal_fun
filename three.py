@@ -7,7 +7,7 @@ def main():
 
     total = 0
     big_line = ""
-    with open('input_3.txt', 'r') as file:
+    with open('data/input_3.txt', 'r') as file:
         for line in file:
             big_line = big_line + line
 

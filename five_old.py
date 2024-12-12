@@ -57,7 +57,7 @@ class TreeNode:
 
 def read_rules():
 
-    filename = 'input_5_a_rules.txt'
+    filename = 'data/input_5_a_rules.txt'
 
     tree = TreeNode('root')
 

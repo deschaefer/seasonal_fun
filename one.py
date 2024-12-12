@@ -5,7 +5,7 @@ def main():
     list1 = []
     list2 = []
 
-    with open('input.txt', 'r') as file:
+    with open('data/input.txt', 'r') as file:
         for line in file:
             val1, val2 = line.split()
             list1.append(int(val1))

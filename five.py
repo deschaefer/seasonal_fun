@@ -1,7 +1,7 @@
 
 def read_rules():
 
-    filename = 'input_5_rules.txt'
+    filename = 'data/input_5_rules.txt'
     rules_map = {}
 
     with open(filename, 'r') as file:
@@ -18,7 +18,7 @@ def read_rules():
 
 def read_pages():
 
-    filename = 'input_5_pages.txt'
+    filename = 'data/input_5_pages.txt'
 
     pages = []
 
