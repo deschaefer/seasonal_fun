@@ -1,4 +1,3 @@
-
 class TreeNode:
     def __init__(self, name, children=None):
         self.name = name
@@ -23,29 +22,28 @@ class TreeNode:
     def find_parent(node, name):
         if node.name == name:
             return None
-        
+
         if node.find(name):
             return node
-        
+
         for child in node.children:
             found = TreeNode.find_parent(child, name)
             if found:
                 return found
-        
-        return None
 
+        return None
 
     @staticmethod
     def find_child(node, name):
-        
+
         if node.name == name:
             return node
-        
+
         for child in node.children:
             found = TreeNode.find_child(child, name)
             if found:
                 return found
-        
+
         return None
 
     def __str__(self, level=0):
@@ -57,14 +55,14 @@ class TreeNode:
 
 def read_rules():
 
-    filename = 'data/input_5_a_rules.txt'
+    filename = "data/input_5_a_rules.txt"
 
-    tree = TreeNode('root')
+    tree = TreeNode("root")
 
-    with open(filename, 'r') as file:
+    with open(filename, "r") as file:
         for line in file:
             line = line.strip()
-            left, right = list(line.split('|'))
+            left, right = list(line.split("|"))
             left_node = TreeNode.find_child(tree, left)
             right_node = TreeNode.find_child(tree, right)
 
@@ -88,5 +86,5 @@ def main():
     print(tree)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

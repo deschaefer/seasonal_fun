@@ -1,8 +1,7 @@
-
 def read_array(filename):
 
     rval = []
-    with open(filename, 'r') as file:
+    with open(filename, "r") as file:
         for line in file:
             row = list(line.strip())
             rval.append(row)
@@ -21,8 +20,8 @@ def get_subset(row, col, size, data):
         if top_left_row + i < len(data):
             row = []
             for j in range(size):
-                if (top_left_row+i) < 0 or (top_left_col+j) < 0:
-                    row.append('+')
+                if (top_left_row + i) < 0 or (top_left_col + j) < 0:
+                    row.append("+")
                 elif top_left_col + j < len(data[top_left_row + i]):
                     row.append(data[top_left_row + i][top_left_col + j])
                 else:
@@ -35,27 +34,27 @@ def get_subset(row, col, size, data):
 
 def read_test_data():
 
-    # tests_names = ['4_ne.txt', 
-    #                '4_n.txt', 
-    #                '4_s.txt', 
-    #                '4_w.txt', 
-    #                '4_nw.txt', 
-    #                '4_se.txt', 
-    #                '4_sw.txt', 
+    # tests_names = ['4_ne.txt',
+    #                '4_n.txt',
+    #                '4_s.txt',
+    #                '4_w.txt',
+    #                '4_nw.txt',
+    #                '4_se.txt',
+    #                '4_sw.txt',
     #                '4_e.txt']
 
-    tests_names = ['xmas_1.txt', 'xmas_2.txt', 'xmas_3.txt', 'xmas_4.txt']
+    tests_names = ["xmas_1.txt", "xmas_2.txt", "xmas_3.txt", "xmas_4.txt"]
 
     # read in the test data sets
     test_data = []
     for test_name in tests_names:
-        input_data = read_array('data/'+test_name)
+        input_data = read_array("data/" + test_name)
         test_data.append(input_data)
 
     for test_set in test_data:
         for row in test_set:
             print(row)
-        print('-------------------')    
+        print("-------------------")
 
     return test_data
 
@@ -68,7 +67,7 @@ def main():
 
     subset_size = 3
 
-    filename = 'data/input_4.txt'
+    filename = "data/input_4.txt"
     input_data = read_array(filename)
 
     for x in range(len(input_data)):
@@ -90,14 +89,14 @@ def main():
                             if test_value != input_value:
                                 match = False
                 if match:
-                    print('matching test set')
+                    print("matching test set")
                     for row in test_set:
                         print(row)
                     match_count += 1
-                    print(f'Match found {match_count}')
+                    print(f"Match found {match_count}")
 
     print(f"Match count: {match_count}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

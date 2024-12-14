@@ -1,11 +1,8 @@
-
-
-
 def main():
     list1 = []
     list2 = []
 
-    with open('data/input.txt', 'r') as file:
+    with open("data/input.txt", "r") as file:
         for line in file:
             val1, val2 = line.split()
             list1.append(int(val1))
@@ -21,5 +18,5 @@ def main():
     print(total)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

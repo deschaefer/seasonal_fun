@@ -1,4 +1,3 @@
-
 def _check_direction_tiny(check_me, direction):
 
     for i in range(len(check_me) - 1):
@@ -36,6 +35,7 @@ def _check_direction(check_me):
 
     return valid
 
+
 def _check_delta_tiny(check_me):
     for i in range(len(check_me) - 1):
         delta = abs(check_me[i] - check_me[i + 1])
@@ -67,10 +67,11 @@ def _check_delta(valid):
 
     return safe
 
+
 def main():
 
     entire_list = []
-    with open('data/input_two.txt', 'r') as file:
+    with open("data/input_two.txt", "r") as file:
         for line in file:
             values = line.split()
             values = [int(x) for x in values]
@@ -91,7 +92,7 @@ def main():
         good = False
         for candidate in safe:
             candidate_len = len(candidate)
-            if candidate_len >= check_len-1:
+            if candidate_len >= check_len - 1:
                 print(f"good: {i} - {original} - {candidate}")
                 good = True
 
@@ -105,5 +106,5 @@ def main():
     print(total)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

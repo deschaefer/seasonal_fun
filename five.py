@@ -1,13 +1,12 @@
-
 def read_rules():
 
-    filename = 'data/input_5_rules.txt'
+    filename = "data/input_5_rules.txt"
     rules_map = {}
 
-    with open(filename, 'r') as file:
+    with open(filename, "r") as file:
         for line in file:
             line = line.strip()
-            left, right = list(line.split('|'))
+            left, right = list(line.split("|"))
             if left in rules_map:
                 rules_map[left].append(right)
             else:
@@ -18,16 +17,16 @@ def read_rules():
 
 def read_pages():
 
-    filename = 'data/input_5_pages.txt'
+    filename = "data/input_5_pages.txt"
 
     pages = []
 
-    with open(filename, 'r') as file:
+    with open(filename, "r") as file:
         for line in file:
             line = line.strip()
-            new_pages = list(line.split(','))
+            new_pages = list(line.split(","))
             pages.append(new_pages)
-    
+
     return pages
 
 
@@ -43,7 +42,7 @@ def validate_page(rules_map, page):
                     return False, 0
             except ValueError:
                 pass
-    print(f'pass {page}')
+    print(f"pass {page}")
     return True, page[len(page) // 2]
 
 
@@ -60,7 +59,7 @@ def fix_page(rules_map, page):
                     return False, 0, page
             except ValueError:
                 pass
-    print(f'pass {page}')
+    print(f"pass {page}")
     return True, page[len(page) // 2], page
 
 
@@ -86,5 +85,5 @@ def main():
     print(validated)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

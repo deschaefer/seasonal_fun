@@ -7,7 +7,7 @@ def main():
 
     total = 0
     big_line = ""
-    with open('data/input_3.txt', 'r') as file:
+    with open("data/input_3.txt", "r") as file:
         for line in file:
             big_line = big_line + line
 
@@ -35,5 +35,7 @@ def main():
                 total += val
 
     print(f"Total: {total}")
-if __name__ == '__main__':
+
+
+if __name__ == "__main__":
     main()
